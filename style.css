@@ -14,7 +14,7 @@
     --fw-bold: 900;
 
     --clr-light: #fff;
-    --clr-dark: #303030;
+    --clr-dark: #242222;
     --clr-accent: #16e0bd;
 
     --fs-h1: 3rem;
@@ -87,7 +87,7 @@ strong { font-weight: var(--fw-bold) }
 h1,
 h2,
 h3 {
-    line-height: 1.1;
+    line-height: 1;
     margin: 0;
 }
 
@@ -147,8 +147,8 @@ nav { display: none;}
         margin: 0 auto;
         grid-column-gap: 1em;
         grid-template-areas:
-        "img title"
-        "img subtitle";
+            "img title"
+            "img subtitle";
         grid-template-columns: min-content max-content;
     }
 
@@ -191,7 +191,7 @@ nav { display: none;}
 .section__title--services::after {
     content: '';
     display: block;
-    width: 25%;
+    width: 2em;
     height: 1px;
     margin: 0.5em auto 1em;
     background: var(--clr-light);
@@ -226,23 +226,41 @@ nav { display: none;}
     margin: 0 auto;
 }
 
-@media (min-width: 600px) {
+.about-me__img {
+    box-shadow: var(--bs);
+}
+
+@media (min-width: 700px) {
     .about-me {
         display: grid;
-        grid-template-columns: 1fr 100px;
+        grid-template-columns: 1fr 400px;
         grid-template-areas: 
             "title img"
             "subtitle img"
             "text img";
-
+        grid-column-gap: 2em;
+               
     }
 
     .section__title--about {
         grid-area: title;
     }
 
+    .section__subtitle--about {
+        grid-column: 1 /-1;
+        grid-row: 1/ 2;
+        position: relative;
+        left: -1em;
+        width: calc(100% + 2em);
+        padding-left: 1em;
+        padding-right: calc(250px + 4em);
+    }
+
     .about-me__img {
         grid-area: img;
+        min-width: 250px;
+        position: relative;
+        z-index: 2;
     }
 }
 
